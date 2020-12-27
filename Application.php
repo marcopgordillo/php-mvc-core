@@ -8,6 +8,11 @@ use Exception;
 
 class Application
 {
+    public const EVENT_BEFORE_REQUEST = 'beforeRequest';
+    public const EVENT_AFTER_REQUEST = 'afterRequest';
+
+    protected array $eventListeners = [];
+
     public static string $ROOT_DIR;
     public string $layout = 'main';
     public string $userClass;
@@ -43,6 +48,7 @@ class Application
 
     public function run()
     {
+        $this->triggerEvent(self::EVENT_BEFORE_REQUEST);
         try {
             echo $this->router->resolve();
         } catch(Exception $e) {
@@ -51,6 +57,21 @@ class Application
                 'exception' => $e,
             ]);
         }
+        $this->triggerEvent(self::EVENT_AFTER_REQUEST);
+    }
+
+    public function triggerEvent($eventName)
+    {
+        $callbacks = $this->eventListeners[$eventName] ?? [];
+
+        foreach ($callbacks as $callback) {
+            call_user_func($callback);
+        }
+    }
+
+    public function on($eventName, $callback)
+    {
+        $this->eventListeners[$eventName][] = $callback;
     }
 
     public function getController()
