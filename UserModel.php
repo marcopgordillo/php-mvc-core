@@ -1,8 +1,8 @@
 <?php
 
-namespace App\core;
+namespace marcopgordillo\phpmvc;
 
-use App\core\db\DbModel;
+use marcopgordillo\phpmvc\db\DbModel;
 
 abstract class UserModel extends DbModel
 {

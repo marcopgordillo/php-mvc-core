@@ -1,9 +1,9 @@
 <?php
 
-namespace App\core;
+namespace marcopgordillo\phpmvc;
 
-use App\core\db\Database;
-use App\core\UserModel;
+use marcopgordillo\phpmvc\db\Database;
+use marcopgordillo\phpmvc\UserModel;
 use Exception;
 
 class Application

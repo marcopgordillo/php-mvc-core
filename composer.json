@@ -9,5 +9,10 @@
             "email": "6589245+marcopgordillo@users.noreply.github.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "marcopgordillo\\phpmvc\\": "."
+        }
+    },
     "require": {}
 }
