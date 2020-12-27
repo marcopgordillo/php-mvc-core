@@ -1,0 +1,13 @@
+{
+    "name": "mgordillo/php-mvc-core",
+    "description": "PHP MVC Core Framework",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Gordillo",
+            "email": "6589245+marcopgordillo@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
